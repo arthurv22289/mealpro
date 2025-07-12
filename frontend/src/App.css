@@ -1,38 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
-    text-align: center;
+  text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Custom styles for the meal planning app */
+.meal-category-column {
+  min-height: 400px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Hover effects for ingredient items */
+.ingredient-item {
+  transition: all 0.2s ease-in-out;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.ingredient-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-    color: #61dafb;
+/* Animation for menu generation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.loading-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Custom scrollbar for ingredient lists */
+.ingredient-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ingredient-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.ingredient-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.ingredient-list::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+  .meal-planning-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .meal-planning-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .meal-planning-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1281px) {
+  .meal-planning-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+/* Beautiful gradient backgrounds */
+.category-entree {
+  background: linear-gradient(135deg, #d4f4dd 0%, #c8e6c9 100%);
+}
+
+.category-sauce {
+  background: linear-gradient(135deg, #fce4ca 0%, #f8c291 100%);
+}
+
+.category-proteine {
+  background: linear-gradient(135deg, #ffcccb 0%, #ffa07a 100%);
+}
+
+.category-feculent {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+}
+
+.category-legumes {
+  background: linear-gradient(135deg, #d1ecf1 0%, #85c1e9 100%);
+}
+
+.category-technique {
+  background: linear-gradient(135deg, #e8d5ff 0%, #d2b4de 100%);
+}
+
+.category-dessert {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5b7b1 100%);
 }
